@@ -1,8 +1,8 @@
-import sys
-import pathlib
 import os
-from dotenv import load_dotenv
+import pathlib
+import sys
 
+from dotenv import load_dotenv
 
 ## Set working dir and add to sys.path
 if str(pathlib.Path(__file__).resolve().parents[1]) == os.getenv("REPO_FILEPATH"):
@@ -16,8 +16,7 @@ os.chdir(working_dir)
 load_dotenv()
 
 
-from app.main_window import MainWindow
-
+from ui.main_window import MainWindow
 
 if __name__ == "__main__":
 

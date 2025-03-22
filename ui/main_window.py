@@ -1,6 +1,6 @@
 import tkinter as tk
 
-import app.manage_venv as mv
+import logic.manage_venv as mv
 
 
 class MainWindow:

@@ -3,11 +3,11 @@ import subprocess
 
 
 def rebuild_venv(repo_name):
-    cmd_filepath = os.path.join("logic", "rebuild_venv.cmd")
-    repo_filepath = os.path.join(os.getenv("REPO_FILEPATH"), repo_name)
+    cmd_filepath = os.path.join("app", "rebuild_venv.cmd")
+    repos_filepath = os.path.join(os.getenv("REPOS_FILEPATH"), repo_name)
 
     process = subprocess.Popen(
-        [cmd_filepath, repo_filepath],
+        [cmd_filepath, repos_filepath],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
@@ -20,7 +20,3 @@ def rebuild_venv(repo_name):
         print(line.strip())
 
     process.wait()
-
-
-if __name__ == "__main__":
-    rebuild_venv("test")

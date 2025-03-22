@@ -1,10 +1,14 @@
 import os
 import sys
 
-from dotenv import find_dotenv, load_dotenv
+from dotenv import load_dotenv
 
-load_dotenv(find_dotenv(".env"))
-python_path = os.getenv("PYTHONPATH")
+if os.getenv("DEBUG") == "TRUE":
+    load_dotenv()
+    python_path = os.getenv("PYTHONPATH")
+else:
+    load_dotenv(dotenv_path=os.path.join(sys._MEIPASS, ".env"))
+    python_path = sys._MEIPASS
 
 os.chdir(python_path)
 os.environ["PYTHONPATH"] = python_path

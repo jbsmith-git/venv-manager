@@ -11,14 +11,10 @@ os.chdir(python_path)
 os.environ["PYTHONPATH"] = python_path
 sys.path.append(python_path)
 
-REPO_FILEPATH = os.getenv("REPO_FILEPATH")
 
 a = Analysis(
-    [os.path.join(REPO_FILEPATH, "app", "__main__.py")],
-    datas=[
-        (os.path.join(REPO_FILEPATH, "app"), "."),
-        (REPO_FILEPATH, ".env"),
-    ],
+    [os.path.join("app", "__main__.py")],
+    datas=[("app", "app"), (".env", ".")],
 )
 
 pyz = PYZ(a.pure)
@@ -30,5 +26,5 @@ exe = EXE(
     a.datas,
     name="Venv Manager",
     console=True,
-    icon=[os.path.join(REPO_FILEPATH, "icon.ico")],
+    icon=["icon.ico"],
 )

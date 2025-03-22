@@ -19,3 +19,4 @@ from app.venv_construction import rebuild_venv
 if __name__ == "__main__":
     repo_name = input("Repo name: ")
     rebuild_venv(repo_name)
+    input()
